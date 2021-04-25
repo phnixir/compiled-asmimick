@@ -1,0 +1,28 @@
+; my first asmimick program
+; the latest update lets you input more bytes than needed
+; for example "test" which is 4 bytes doesnt need to be exact
+; it just needs to be exact or more than 4 and under 256
+; before every print instruction the data mode has to be
+; set to text and after it to make sure the program runs smoothly
+; and ends the data mode should be switched back to instructions
+; otherwise undefined behaviour
+
+; the latest update made asmimick compile to 32bit linux elf
+; removed the dmode instruction and the requirement to specify
+; some kind of buffer size for the string
+; the asmimick compiler is also written in bash, uses nasm as backend
+; and emits x86_32 assembly using linux kernel syscalls and including
+; a soon-to-expand stdlib which is also written in x86_32 assembly
+
+prt <s> "Hello, World!"
+nwl
+prt <s> 'This is a program to demonstrate that'
+prt <s> ' you can concatenate prints!'
+nwl
+prt <s> 'Using hex value for the quote in don', 0x27, 't'		      
+nwl
+prt <s> "Putting double quotes so you can use single quotes in don't" 
+nwl
+prt <s> "It is possible to also end string in ', 0x0a' instead of a nwl instruction", 0x0a 
+
+end

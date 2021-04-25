@@ -1,0 +1,2 @@
+; progrom with no end
+prt <s> 'segfault inc.', 0x0a
